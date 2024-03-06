@@ -1,0 +1,17 @@
+git -v			VER VERSAO
+git init		GERAR GIT
+git status		VERIFICAR STATUS
+git add .		ADICIONAR TODOS OS ARQUIVOS
+git add arquivo		ADICIONAR O ARQUIVO COM EXTENSÃO
+git commit -m "msg"	COMITAR A ATUALIZAÇÃO
+git log			VERIICAR ATUALIZAÇÂO
+git reset --hard id	VOLTAR A UM BKP o ID = commit do git log
+
+
+
+git config --global user.email "vanderley@gmail.com"
+git config --global user.name "Vanderley"
+
+
+TOKEN
+git push -u origin main

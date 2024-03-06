@@ -1,0 +1,8 @@
+Envio bem-sucedido!
+Curso: 1870205, 1º2024 - Estruturas de Dados I - A (mat) SM - ADS - quarta - Lab 402
+Avaliação: Exerc-3-0
+
+Data de envio: 28/02/24 09:47
+Tamanho do envio: 17,7 KB
+Autor do envio: Vanderley de Oliveira Junior UCS_Cst em Análise e Desenvolvimento de Sistemas_3A_20241
+Número de confirmação: 4da7fd94e05246ffb93532c51c4457c4
