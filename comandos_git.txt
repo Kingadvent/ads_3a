@@ -2,10 +2,10 @@
 git init
 
 --comando para atualizar o nome do usuario (isso nao eh o usuario do github)
-git config --global user.name "Professor Lozano"
+git config --global user.name "Vanderley"
 
 --comando para atualizar o email do usuario (sao apenas infs locais)
-git config --global user.email "prof-luiz@outlook.com"
+git config --global user.email "vanderley196338@gmail.com"
 
 -- alterar branch master para main
 git branch -m master main
