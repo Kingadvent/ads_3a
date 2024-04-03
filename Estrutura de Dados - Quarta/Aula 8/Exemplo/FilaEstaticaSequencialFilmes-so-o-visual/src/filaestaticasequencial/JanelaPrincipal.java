@@ -150,10 +150,15 @@ public class JanelaPrincipal extends javax.swing.JFrame {
         // Lógica do botão Cadastrar
         // bloco try-catch para capturar erros nos dados:
         String titulo = jTextField1.getText();
-        //...
+        String diretor = jTextField2.getText();
+        String genero = jTextField3.getText();
+        String pais = jTextField4.getText();
         int ano = Integer.parseInt(jTextField5.getText());
-        //...        
-        fila.enqueue(ano);
+
+        String msg = ""+ titulo +", diretor:"+ diretor +", "+ genero +", "+ pais +", "+ ano +"";
+        
+        System.out.println(msg);
+        fila.enqueue(msg);
         JOptionPane.showMessageDialog(null, "Cadastro com sucesso", "Filme cadastrado com sucesso!", JOptionPane.INFORMATION_MESSAGE);
         jTextField1.setText("");
         jTextField2.setText("");
@@ -165,12 +170,18 @@ public class JanelaPrincipal extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // Botão Listar filmes cadastrados:
-
+        System.out.println("LISTAGEM");
+        
+        jTextArea1.setText(fila.toString());
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // Botão Retirar até encontrar um filme de ação
-
+        System.out.println("REMOVER");
+        
+        Object lista = fila.peek();
+        String palavra = "Ação";
+        
     }//GEN-LAST:event_jButton3ActionPerformed
 
     /**

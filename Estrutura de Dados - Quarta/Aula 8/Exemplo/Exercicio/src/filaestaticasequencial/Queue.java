@@ -1,19 +1,21 @@
 package filaestaticasequencial;
 
-/*  @author Ledón  */
+/*   @author Ledón  */
+
 import javax.swing.*;
 
-//Implementação de uma Queue Estática Sequencial
+//Projeto FilaEstaticaSequencial.
+//Implementação de uma Fila Estática Sequencial
 //com funcionamento circular.
 public class Queue implements TAD_Queue {
 
     private int total = 0;	//Total de Elementos na fila (convenção: 0 se a fila estiver vazia)
-    private int head = -1;	//Começo da Queue  (convenção: -1 se a fila estiver vazia)
-    private int tail = -1;	//Final da Queue (convenção: -1 se fila vazia)
+    private int head = -1;  //Começo da Queue  (convenção: -1 se a fila estiver vazia)
+    private int tail = -1;	//Final da fila (convenção: -1 se fila vazia)
     private Object memo[];  //Vetor para armazenar os elementos
     private int MAX;        //Capacidade máxima da Queue Estática
 
-    //Inicializa a fila em estado vazia
+    //Inicializa a Queue em estado vazia
     public Queue() {
         MAX = 1000;
         memo = new Object[MAX];
@@ -22,7 +24,7 @@ public class Queue implements TAD_Queue {
         tail = -1;
     }
 
-    //Inicializa a fila em estado vazia
+    //Inicializa a fila em estado vazia, com um tamanho inicial para o vetor
     public Queue(int qtde) {
         MAX = qtde;
         memo = new Object[MAX];
@@ -31,37 +33,34 @@ public class Queue implements TAD_Queue {
         tail = -1;
     }
 
-    //Verifica se a fila  está vazia
+    //Verifica se a fila está vazia
     public boolean isEmpty() {
         return (total == 0);
     }
 
-    //Verifica se a fila está cheia
+    //Verifica se a fila está cheia (se o vetor está cheio)
     public boolean isFull() {
         return (total == MAX);
     }
 
-    //Insere um elemento no final da fila
+    //Insere um elemento na fila
     public Object enqueue(Object x) {
         if (!isFull() && x != null) {  // pré-condições
             if (++tail >= MAX) {
                 tail = 0;
             }
-            if (head == -1) {
-                head = tail;
-            }
+            if (head == -1) head = tail;
             memo[tail] = x;
             total++;
             return x;
-        } else {
-            return null;
-        }
+        } 
+        else return null;
     }
 
     //Remove um elemento do início da fila
     public Object dequeue() {
         if (!isEmpty()) {
-            Object resp = memo[head];
+            Object objeto = memo[head];
             if (++head >= MAX) {
                 head = 0;
             }
@@ -70,7 +69,7 @@ public class Queue implements TAD_Queue {
                 head = -1;
                 tail = -1;
             }
-            return resp;
+            return objeto;
         } else {
             return null;
         }
@@ -104,14 +103,14 @@ public class Queue implements TAD_Queue {
             for (int i = 1; i <= total; i++) {
                 saida += memo[pos].toString();
                 if (i != total) {
-                    saida += ",\n";
+                    saida += ", ";
                 }
                 pos++;
                 if (pos >= MAX) {
                     pos = 0;
                 }
             }
-            return ("F: " + " [\n" + saida + "\n]\n");
+            return ("F: " + " [ " + saida + " ]");
         } else {
             return ("F: [ ]");
         }
