@@ -1,0 +1,34 @@
+Exercício 1 (pilha que guarda objetos String)
+
+Seja a pilha p, inicialmente no estado p: ["alfa", "beta"],
+como ficará esta pilha depois de executar os comandos a
+seguir?              
+                     
+p.push("janela");
+Object ob = p.pop();
+p.push("mesa");
+p.push(ob);
+p.push(p.top());
+p.push(p.pop());
+
+Resposta:
+p: [...]
+
+
+Exercício 2 (pilha que guarda valores inteiros)
+
+Seja a pilha p, inicialmente no estado p: [4, 9, 12],
+como ficará esta pilha depois de executar os comandos a
+seguir?
+
+push(8)
+push(15)
+Object ob = pop()
+push(23)
+push(ob)
+push(top())
+push(pop())
+
+Resposta:
+p: [...]
+

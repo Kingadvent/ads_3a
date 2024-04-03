@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste JavaScript</title>
+</head>
+<body>
+    <h1>Teste com JavaScript</h1>
+    <div>
+        Em um ciclo, vamos adicionar itens em um vetor. <br>
+        Veja que em JavaScript os vetores podem crescer de tamanho 
+        automaticamente.
+    </div>
+    <script>
+        var vetor = [];
+        var resposta = "-";
+        while(true) {
+            resposta = prompt("Digite um item (nao ou não para sair)?");
+            if(resposta == "nao" || resposta == "não") {
+                break;
+            }
+            vetor.push(resposta); //adicionamos um item no final do vetor
+            alert("Os itens do vetor são:  " + vetor);
+        }
+    </script>
+</body>
+</html>
