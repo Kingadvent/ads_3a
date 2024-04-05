@@ -180,6 +180,8 @@ public class JanelaPrincipal extends javax.swing.JFrame {
         System.out.println("REMOVER");
         
         Object lista = fila.peek();
+        System.out.println(lista);
+        
         String palavra = "Ação";
         
     }//GEN-LAST:event_jButton3ActionPerformed
