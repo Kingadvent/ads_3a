@@ -1,1 +1,9 @@
 Projeto SMP
+
+npm init
+npm install express --save
+npm install nodemon --save-dev
+
+
+
+// VAI MONITORAR TODO ARQUIVO JS QUE TEM NO PROJETO devDependencies - Nodemon

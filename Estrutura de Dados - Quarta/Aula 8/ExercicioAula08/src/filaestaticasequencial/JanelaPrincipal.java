@@ -5,7 +5,7 @@ import javax.swing.JOptionPane;
 public class JanelaPrincipal extends javax.swing.JFrame {
 
     private Queue fila = new Queue(100); //permititrá guardar até 100 filmes
-
+    
     public JanelaPrincipal() {
         initComponents();
     }
@@ -84,7 +84,7 @@ public class JanelaPrincipal extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(81, 81, 81)
+                .addGap(66, 66, 66)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jButton1)
@@ -107,7 +107,7 @@ public class JanelaPrincipal extends javax.swing.JFrame {
                             .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 416, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(24, 132, Short.MAX_VALUE))
+                .addGap(24, 70, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -139,7 +139,7 @@ public class JanelaPrincipal extends javax.swing.JFrame {
                     .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(114, Short.MAX_VALUE))
+                .addContainerGap(46, Short.MAX_VALUE))
         );
 
         setSize(new java.awt.Dimension(773, 593));
@@ -149,48 +149,56 @@ public class JanelaPrincipal extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // Lógica do botão Cadastrar
         // bloco try-catch para capturar erros nos dados:
-        String titulo = jTextField1.getText();
-        String diretor = jTextField2.getText();
-        String genero = jTextField3.getText();
-        String pais = jTextField4.getText();
-        int ano = Integer.parseInt(jTextField5.getText());
-
         
-        Filme filme = new Filme(titulo, diretor, genero, pais, ano);
-
-        fila.enqueue(filme);
-        JOptionPane.showMessageDialog(null, "Cadastro com sucesso", "Filme cadastrado com sucesso!", JOptionPane.INFORMATION_MESSAGE);
-        jTextField1.setText("");
-        jTextField2.setText("");
-        jTextField3.setText("");
-        jTextField4.setText("");
-        jTextField5.setText("");
-        jTextField1.requestFocus();
+        try {
+            
+            String titulo = jTextField1.getText();
+            String diretor = jTextField2.getText();
+            String genero = jTextField3.getText();
+            String pais = jTextField4.getText();
+            int ano = Integer.parseInt(jTextField5.getText());
+        
+            Filme filme = new Filme(titulo, diretor, genero, pais, ano);
+        
+            fila.enqueue(filme);
+            //System.out.println(fila.toString());
+        
+            JOptionPane.showMessageDialog(null, "Cadastro com sucesso", "Filme cadastrado com sucesso!", JOptionPane.INFORMATION_MESSAGE);
+            jTextField1.setText("");
+            jTextField2.setText("");
+            jTextField3.setText("");
+            jTextField4.setText("");
+            jTextField5.setText("");
+            jTextField1.requestFocus();
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Preencha os dados corretamente!");
+        }
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // Botão Listar filmes cadastrados:
-        System.out.println("LISTAGEM");
-        
         jTextArea1.setText(fila.toString());
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // Botão Retirar até encontrar um filme de ação
-        System.out.println("REMOVER");
+        
+        // Verifica se a fila não está vazia
         if (!fila.isEmpty()) {
             while (!fila.isEmpty()) {
-                Filme teste = (Filme) fila.dequeue();
+                Filme teste = (Filme) fila.dequeue(); //casting
                 if (teste.getGenero().equalsIgnoreCase("Ação")) {
-                    jTextArea1.setText("Filme de ação encontrado:\n"+ teste.toString());
-                    fila.enqueue(teste);
+                    jTextArea1.setText("Filme de ação encontrado:\n" + teste.toString());
+                    fila.enqueue(teste); //reinsere o filme de ação na lista
                     break;
                 }
             }
         } else {
-            JOptionPane.showMessageDialog(null, "A fila esta vazia!");
-        }
-        
+            // Exibe uma mensagem se a fila estiver vazia
+            JOptionPane.showMessageDialog(null, "A fila está vazia!");
+        }       
     }//GEN-LAST:event_jButton3ActionPerformed
 
     /**

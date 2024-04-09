@@ -4,6 +4,9 @@ public class Filme {
     private String titulo, diretor, genero, pais;
     private int ano;
 
+    public Filme() {
+    }
+
     public Filme(String titulo, String diretor, String genero, String pais, int ano) {
         this.titulo = titulo;
         this.diretor = diretor;
@@ -52,7 +55,8 @@ public class Filme {
         this.ano = ano;
     }
     
-    
-
-   
+    public String toString(){
+       return titulo + ", diretor: " + diretor + ", " + genero
+               + ", " + pais + ", " + ano;
+   }
 }
