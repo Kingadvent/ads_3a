@@ -1,0 +1,37 @@
+B = 5
+
+def exemplo( A = B):
+    A = A + 1
+    print(A)
+    
+exemplo()
+
+a = 1
+b = 2
+c = 3
+
+def exemplo2(a,b,c):
+    print(f"Valor de a é ", (a))
+    print(f"Valor de b é ", (b))
+    print(f"Valor de c é ", (c))
+
+exemplo2(a,b,c)
+
+a = 7
+b = 8
+
+def calc(a,b):
+    c = a + b 
+    print("O valor da soma é", (c))
+calc(a,b)
+
+def QualOnomeDoCao():
+    while True:
+        print( "Tinha dois cães DeNada e DeNovo, Denada morreu, ")
+        nome = input("Qual o nome do cão? ")
+        nome = nome.upper()
+        if nome == "DENOVO":
+            continue
+        else:
+            break
+QualOnomeDoCao()    
